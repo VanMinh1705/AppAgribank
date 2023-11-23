@@ -9,7 +9,7 @@ import {
 import React from "react";
 import { useState } from "react";
 
-const infoAgri = () => {
+const infoAgri = ({ navigation }) => {
   const [selected, setSelected] = useState(1);
 
   return (
@@ -22,14 +22,20 @@ const infoAgri = () => {
             alignItems: "center",
           }}
         >
-          <Image
-            style={{
-              width: "30px",
-              height: "28px",
-              marginLeft: "5px",
+          <Pressable
+            onPress={() => {
+              navigation.goBack();
             }}
-            source={require("../assets/img/arrow-left.png")}
-          />
+          >
+            <Image
+              style={{
+                width: "30px",
+                height: "28px",
+                marginLeft: "5px",
+              }}
+              source={require("../assets/img/arrow-left.png")}
+            />
+          </Pressable>
           <Text
             style={{
               color: "#FFF",
