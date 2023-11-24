@@ -13,7 +13,7 @@ const TrangTK = ({ navigation, route }) => {
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: "USD", // You can change the currency code as needed
+      currency: "VND", // You can change the currency code as needed
     }).format(amount);
   };
   return (
@@ -50,7 +50,7 @@ const TrangTK = ({ navigation, route }) => {
           />
           <Pressable
             onPress={() => {
-              navigation.navigate("TaiKhoan");
+              navigation.navigate("TaiKhoan", { id: id, item: item });
             }}
           >
             <Image

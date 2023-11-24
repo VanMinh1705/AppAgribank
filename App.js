@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TextInput } from "react-native";
 import { useState } from "react";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import infoAgri from "./screens/Tab/infoAgri";
 import home from "./screens/home";
 import TrangTK from "./screens/TrangTK";
@@ -22,12 +23,27 @@ import ThanhToanHD from "./screens/ThanhToanHD";
 import MaTheDATA from "./screens/MaTheDATA";
 import TienIch from "./screens/TienIch";
 import TaiKhoan from "./screens/TaiKhoan";
+import TienGuiTrucTuyen from "./screens/TaiChinh/TienGuiTrucTuyen";
+import ChungKhoan from "./screens/TaiChinh/ChungKhoan";
+import NapTienDV from "./screens/TaiChinh/NapTienDV";
+import GuiTienMung from "./screens/TaiChinh/GuiTienMung";
+import NhanTienKHForm from "./screens/TaiChinh/NhanTienKHForm";
+import TraNo from "./screens/TaiChinh/TraNo";
+import BanBe from "./screens/TaiChinh/BanBe";
+import MuaBaoHiem from "./screens/TaiChinh/MuaBaoHiem";
 
 function Login({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [isErrorModalVisible, setIsErrorModalVisible] = useState(false);
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  // Function to toggle the password visibility state
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleLogin = () => {
     fetch("https://650424bdc8869921ae2491fd.mockapi.io/account")
@@ -52,7 +68,7 @@ function Login({ navigation }) {
     <View style={styles.container}>
       <View>
         <Image
-          style={{ width: "250px", height: "70px" }}
+          style={{ width: "250px", height: "70px", marginLeft: 20 }}
           source={require("./assets/img/agribank-logo.png")}
         />
         <Text
@@ -85,18 +101,35 @@ function Login({ navigation }) {
         </View>
 
         <View style={{ marginTop: "20px" }}>
-          <TextInput
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={true}
+          <View
             style={{
-              fontSize: "20px",
-              color: "#c4c4c4",
-              width: "300px",
-              height: "50px",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 8,
+              paddingHorizontal: 14,
             }}
-            placeholder="Mật khẩu"
-          />
+          >
+            <TextInput
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry={!showPassword}
+              style={{
+                fontSize: "20px",
+                color: "#c4c4c4",
+                width: "300px",
+                height: "50px",
+              }}
+              placeholder="Mật khẩu"
+            />
+            <MaterialCommunityIcons
+              name={showPassword ? "eye-off" : "eye"}
+              size={24}
+              color="#aaa"
+              style={styles.icon}
+              onPress={toggleShowPassword}
+            />
+          </View>
           <View
             style={{
               width: "auto",
@@ -295,6 +328,14 @@ export default function App() {
         <Stack.Screen name="MaTheDATA" component={MaTheDATA} />
         <Stack.Screen name="TienIch" component={TienIch} />
         <Stack.Screen name="TaiKhoan" component={TaiKhoan} />
+        <Stack.Screen name="TienGuiTrucTuyen" component={TienGuiTrucTuyen} />
+        <Stack.Screen name="ChungKhoan" component={ChungKhoan} />
+        <Stack.Screen name="NapTienDV" component={NapTienDV} />
+        <Stack.Screen name="GuiTienMung" component={GuiTienMung} />
+        <Stack.Screen name="NhanTienKHForm" component={NhanTienKHForm} />
+        <Stack.Screen name="TraNo" component={TraNo} />
+        <Stack.Screen name="BanBe" component={BanBe} />
+        <Stack.Screen name="MuaBaoHiem" component={MuaBaoHiem} />
       </Stack.Navigator>
     </NavigationContainer>
   );

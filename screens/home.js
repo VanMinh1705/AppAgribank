@@ -503,6 +503,22 @@ const home = ({ navigation, route }) => {
                     navigation.navigate("ThanhToanHD");
                   } else if (item.id === 4) {
                     navigation.navigate("MaTheDATA");
+                  } else if (item.id === 5) {
+                    navigation.navigate("TienGuiTrucTuyen");
+                  } else if (item.id === 6) {
+                    navigation.navigate("ChungKhoan");
+                  } else if (item.id === 7) {
+                    navigation.navigate("NapTienDV");
+                  } else if (item.id === 8) {
+                    navigation.navigate("GuiTienMung");
+                  } else if (item.id === 9) {
+                    navigation.navigate("NhanTienKHForm");
+                  } else if (item.id === 10) {
+                    navigation.navigate("TraNo");
+                  } else if (item.id === 11) {
+                    navigation.navigate("BanBe");
+                  } else if (item.id === 12) {
+                    navigation.navigate("MuaBaoHiem");
                   }
                 }}
                 style={{

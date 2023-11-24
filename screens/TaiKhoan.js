@@ -53,7 +53,7 @@ LocaleConfig.locales["vi"] = {
 
 LocaleConfig.defaultLocale = "vi";
 
-const TaiKhoan = ({ navigation }) => {
+const TaiKhoan = ({ navigation, route }) => {
   const [isCalendarModalVisible, setCalendarModalVisible] = useState(false);
   const [selectedFromDate, setSelectedFromDate] = useState("");
   const [selectedToDate, setSelectedToDate] = useState("");
@@ -123,7 +123,14 @@ const TaiKhoan = ({ navigation }) => {
     // Cập nhật giá trị năm khi thay đổi
     setSelectedYear(year.year);
   };
-
+  const { id, item } = route.params;
+  //Đổi giá trị tiền tệ
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "VND", // You can change the currency code as needed
+    }).format(amount);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -150,21 +157,32 @@ const TaiKhoan = ({ navigation }) => {
         </View>
         <View style={{ flexDirection: "row" }}>
           <Text style={{ left: 15, color: "#FF6600", fontWeight: 700 }}>
-            011111111111
+            {item.SoTK}
           </Text>
 
           <Image
             source={require("../assets/img/copy.jpg")}
             style={{ top: 2.5, left: 20, width: 20, height: 20 }}
           />
-
-          <Image
-            source={require("../assets/img/qrcode.jpg")}
-            style={{ marginLeft: 200, width: 25, height: 25 }}
-          />
+          <View
+            style={{
+              borderColor: "red",
+              borderWidth: 1,
+              width: 35,
+              height: 35,
+              alignItems: "center",
+              justifyContent: "center",
+              marginLeft: 200,
+            }}
+          >
+            <Image
+              source={require("../assets/img/qrcode.jpg")}
+              style={{ width: 25, height: 25 }}
+            />
+          </View>
         </View>
 
-        <Text style={{ left: 15 }}>Số dư :57,367</Text>
+        <Text style={{ left: 15 }}>Số dư :{formatCurrency(item.SoDu)}</Text>
 
         <Text
           style={{
@@ -179,7 +197,7 @@ const TaiKhoan = ({ navigation }) => {
           Chủ tài khoản
         </Text>
         <View style={{ flexDirection: "row" }}>
-          <Text style={{ marginLeft: 15 }}>HUYNH VY HAO</Text>
+          <Text style={{ marginLeft: 15 }}>{item.name}</Text>
         </View>
         <View
           style={{
@@ -387,7 +405,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: "#fff",
     width: 370,
-    height: 165,
+    height: 175,
     marginVertical: 10,
     padding: 10,
     left: 10,
