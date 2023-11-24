@@ -9,11 +9,33 @@ import {
   SafeAreaView,
   Modal,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Carousel from "./Carousel";
 import CarouselFooter from "./CarouselFooter";
 
 const home = ({ navigation, route }) => {
+  const [accounts, setAccounts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://650424bdc8869921ae2491fd.mockapi.io/account"
+        );
+        const data = await response.json();
+        setAccounts(data);
+
+        // Lấy thông tin từ route.params
+        const { id, item } = route.params;
+        console.log("ID:", id);
+        console.log("Item:", item);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [route.params]);
   const { id, item } = route.params;
   const taichinh = [
     {
@@ -624,7 +646,7 @@ const home = ({ navigation, route }) => {
             renderItem={({ item }) => (
               <Pressable
                 onPress={() => {
-                  navigation.navigate("TienIch");
+                  navigation.navigate("TienIch", { accounts });
                 }}
                 style={{
                   alignItems: "center",

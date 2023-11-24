@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 const TrangTK = ({ navigation, route }) => {
-  const { item } = route.params;
+  const { id, item } = route.params;
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat("en-US", {

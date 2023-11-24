@@ -211,7 +211,7 @@ const TaiKhoan = ({ navigation, route }) => {
           <Text style={{ color: "grey", marginLeft: 15 }}>Chi nhánh mở</Text>
         </View>
         <View style={{ flexDirection: "row" }}>
-          <Text style={{ marginLeft: 15 }}>Chi nhanh My Tho - Tien Giang</Text>
+          <Text style={{ marginLeft: 15 }}>{item.chiNhanh}</Text>
         </View>
       </View>
 

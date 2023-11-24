@@ -68,7 +68,7 @@ function Login({ navigation }) {
     <View style={styles.container}>
       <View>
         <Image
-          style={{ width: "250px", height: "70px", marginLeft: 20 }}
+          style={{ width: "250px", height: "70px", marginLeft: 50 }}
           source={require("./assets/img/agribank-logo.png")}
         />
         <Text
@@ -107,7 +107,6 @@ function Login({ navigation }) {
               alignItems: "center",
               justifyContent: "center",
               borderRadius: 8,
-              paddingHorizontal: 14,
             }}
           >
             <TextInput
@@ -126,7 +125,6 @@ function Login({ navigation }) {
               name={showPassword ? "eye-off" : "eye"}
               size={24}
               color="#aaa"
-              style={styles.icon}
               onPress={toggleShowPassword}
             />
           </View>

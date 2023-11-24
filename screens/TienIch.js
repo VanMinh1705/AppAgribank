@@ -7,8 +7,22 @@ import {
   TextInput,
 } from "react-native";
 import React, { useState } from "react";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const TienIch = ({ navigation }) => {
+const TienIch = ({ navigation, route }) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "VND", // You can change the currency code as needed
+    }).format(amount);
+  };
+  const { accounts } = route.params;
   return (
     <View style={styles.container}>
       <View
@@ -102,19 +116,20 @@ const TienIch = ({ navigation }) => {
           >
             Số dư
           </Text>
-          <View style={{ flexDirection: "row", marginLeft: 190 }}>
-            <Text style={{ fontWeight: 600, fontSize: "18px" }}>0 VND</Text>
 
-            <Image
-              style={{
-                tintColor: "#ff6600",
-                width: "24px",
-                height: "24px",
-                marginLeft: 10,
-              }}
-              source={require("../assets/img/eye-crossed.png")}
+          <Text style={{ fontWeight: 600, fontSize: "18px", marginLeft: 100 }}>
+            {!showPassword
+              ? "*".repeat(String(accounts[0].SoDu).length) + " VND"
+              : formatCurrency(accounts[0].SoDu) + " VND"}
+          </Text>
+          <Pressable onPress={toggleShowPassword}>
+            <MaterialCommunityIcons
+              name={showPassword ? "eye-off" : "eye"}
+              size={24}
+              style={{ marginLeft: 10 }}
+              color="#ff6600"
             />
-          </View>
+          </Pressable>
         </View>
       </View>
       <View
