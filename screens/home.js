@@ -499,6 +499,10 @@ const home = ({ navigation, route }) => {
                     navigation.navigate("ChuyenKhoan");
                   } else if (item.id === 2) {
                     navigation.navigate("NapTien");
+                  } else if (item.id === 3) {
+                    navigation.navigate("ThanhToanHD");
+                  } else if (item.id === 4) {
+                    navigation.navigate("MaTheDATA");
                   }
                 }}
                 style={{

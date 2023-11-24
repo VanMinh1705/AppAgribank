@@ -84,7 +84,7 @@ const ThanhToanHD = ({ navigation }) => {
             style={{ width: 40, height: 40, marginLeft: "10px" }}
           />
         </Pressable>
-        <Text style={styles.headerText}>CHUYỂN KHOẢN</Text>
+        <Text style={styles.headerText}>Thanh toán hóa đơn</Text>
       </View>
       <View style={styles.sectiondv}>
         <FlatList
