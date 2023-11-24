@@ -33,7 +33,7 @@ const infoAgri = ({ navigation }) => {
                 height: "28px",
                 marginLeft: "5px",
               }}
-              source={require("../assets/img/arrow-left.png")}
+              source={require("../../assets/img/arrow-left.png")}
             />
           </Pressable>
           <Text
@@ -53,7 +53,7 @@ const infoAgri = ({ navigation }) => {
               height: "16px",
               marginLeft: "10px",
             }}
-            source={require("../assets/img/menu-dots.png")}
+            source={require("../../assets/img/menu-dots.png")}
           />
         </View>
 
@@ -165,7 +165,7 @@ const infoAgri = ({ navigation }) => {
             height: "18px",
             marginLeft: "5px",
           }}
-          source={require("../assets/img/search.png")}
+          source={require("../../assets/img/search.png")}
         />
         <TextInput
           style={{
@@ -193,7 +193,7 @@ const infoAgri = ({ navigation }) => {
             marginLeft: "5px",
             marginTop: "106px",
           }}
-          source={require("../assets/img/bell.png")}
+          source={require("../../assets/img/bell.png")}
         />
         <Text
           style={{

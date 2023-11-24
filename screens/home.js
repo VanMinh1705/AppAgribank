@@ -452,7 +452,12 @@ const home = ({ navigation, route }) => {
               QR Pay
             </Text>
           </Pressable>
-          <View style={{ alignItems: "center" }}>
+          <Pressable
+            onPress={() => {
+              navigation.navigate("DichVuThe");
+            }}
+            style={{ alignItems: "center" }}
+          >
             <Image
               style={{ width: "70px", height: "70px" }}
               source={require("../assets/img/icon-dv.jpg")}
@@ -465,7 +470,7 @@ const home = ({ navigation, route }) => {
             >
               Dịch vụ thẻ
             </Text>
-          </View>
+          </Pressable>
         </View>
 
         <SafeAreaView style={{ marginTop: "20px" }}>
@@ -488,7 +493,14 @@ const home = ({ navigation, route }) => {
             numColumns={3}
             data={taichinh}
             renderItem={({ item }) => (
-              <View
+              <Pressable
+                onPress={() => {
+                  if (item.id === 1) {
+                    navigation.navigate("ChuyenKhoan");
+                  } else if (item.id === 2) {
+                    navigation.navigate("NapTien");
+                  }
+                }}
                 style={{
                   alignItems: "center",
                   justifyContent: "center",
@@ -511,7 +523,7 @@ const home = ({ navigation, route }) => {
                 >
                   {item.name}
                 </Text>
-              </View>
+              </Pressable>
             )}
           />
         </View>
@@ -533,7 +545,14 @@ const home = ({ navigation, route }) => {
             numColumns={3}
             data={muasam}
             renderItem={({ item }) => (
-              <View
+              <Pressable
+                onPress={() => {
+                  if (item.id === 3) {
+                    navigation.navigate("TaxiAnimation");
+                  } else if (item.id === 1) {
+                    navigation.navigate("DatVeMayBay");
+                  }
+                }}
                 style={{
                   alignItems: "center",
                   justifyContent: "center",
@@ -560,7 +579,7 @@ const home = ({ navigation, route }) => {
                 >
                   {item.name}
                 </Text>
-              </View>
+              </Pressable>
             )}
           />
         </View>
@@ -668,7 +687,12 @@ const home = ({ navigation, route }) => {
             VnShop
           </Text>
         </Pressable>
-        <Pressable style={{ alignItems: "center" }}>
+        <Pressable
+          onPress={() => {
+            navigation.navigate("TaxiAnimation");
+          }}
+          style={{ alignItems: "center" }}
+        >
           <Image
             style={{ tintColor: "#ccc", width: "24px", height: "24px" }}
             source={require("../assets/img/taxi.png")}

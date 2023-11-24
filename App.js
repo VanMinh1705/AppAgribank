@@ -4,12 +4,21 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TextInput } from "react-native";
 import { useState } from "react";
-import infoAgri from "./screens/infoAgri";
+import infoAgri from "./screens/Tab/infoAgri";
 import home from "./screens/home";
 import TrangTK from "./screens/TrangTK";
-import lichSuGD from "./screens/lichSuGD";
+import lichSuGD from "./screens/Tab/lichSuGD";
 import QRScanner from "./screens/QRScanner";
 import SearchScreen from "./screens/SearchScreen";
+import TaxiAnimation from "./screens/Tab/TaxiAnimation";
+import Taxi from "./screens/Tab/Taxi";
+import DichVuThe from "./screens/DichVuThe";
+import DatVeMayBay from "./screens/DatVeMayBay";
+import ChuyenKhoan from "./screens/ChuyenKhoan";
+import CKNoiBoForm from "./screens/CKNoiBoForm";
+import CKLNHForm from "./screens/CKLNHForm";
+import NapTien from "./screens/NapTien";
+import ThanhToanHD from "./screens/ThanhToanHD";
 
 function Login({ navigation }) {
   const [username, setUsername] = useState("");
@@ -264,13 +273,22 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Login" component={Login} />
+        {/* <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={home} />
         <Stack.Screen name="infoAgri" component={infoAgri} />
         <Stack.Screen name="TrangTK" component={TrangTK} />
         <Stack.Screen name="lichSuGD" component={lichSuGD} />
         <Stack.Screen name="QRScanner" component={QRScanner} />
         <Stack.Screen name="SearchScreen" component={SearchScreen} />
+        <Stack.Screen name="TaxiAnimation" component={TaxiAnimation} />
+        <Stack.Screen name="Taxi" component={Taxi} />
+        <Stack.Screen name="DichVuThe" component={DichVuThe} />
+        <Stack.Screen name="DatVeMayBay" component={DatVeMayBay} />
+        <Stack.Screen name="ChuyenKhoan" component={ChuyenKhoan} />
+        <Stack.Screen name="CKNoiBoForm" component={CKNoiBoForm} />
+        <Stack.Screen name="CKLNHForm" component={CKLNHForm} /> */}
+        {/* <Stack.Screen name="NapTien" component={NapTien} /> */}
+        <Stack.Screen name="ThanhToanHD" component={ThanhToanHD} />
       </Stack.Navigator>
     </NavigationContainer>
   );
