@@ -14,11 +14,7 @@ const TrangTK = ({ navigation, route }) => {
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
-<<<<<<< HEAD
       currency: "VND", // You can change the currency code as needed
-=======
-      currency: "USD",
->>>>>>> 271e71d3fdd1c324f3d04cd4f84910d3074b011d
     }).format(amount);
   };
 
