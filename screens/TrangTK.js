@@ -48,6 +48,17 @@ const TrangTK = ({ navigation, route }) => {
             source={require("../assets/img/copy.jpg")}
             style={{ top: 2.5, left: 20, width: 20, height: 20 }}
           />
+          <Pressable>
+            <Image
+              source={require("../assets/img/qr.png")}
+              style={{
+                width: 24,
+                height: 24,
+                tintColor: "#ff6600",
+                marginLeft: 200,
+              }}
+            />
+          </Pressable>
         </View>
         <Text style={{ left: 15, fontWeight: 700 }}>
           Số dư: {formatCurrency(item.SoDu)}

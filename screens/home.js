@@ -606,7 +606,10 @@ const home = ({ navigation, route }) => {
             numColumns={3}
             data={tienich}
             renderItem={({ item }) => (
-              <View
+              <Pressable
+                onPress={() => {
+                  navigation.navigate("TienIch");
+                }}
                 style={{
                   alignItems: "center",
                   justifyContent: "center",
@@ -629,7 +632,7 @@ const home = ({ navigation, route }) => {
                 >
                   {item.name}
                 </Text>
-              </View>
+              </Pressable>
             )}
           />
         </View>
