@@ -48,7 +48,11 @@ const TrangTK = ({ navigation, route }) => {
             source={require("../assets/img/copy.jpg")}
             style={{ top: 2.5, left: 20, width: 20, height: 20 }}
           />
-          <Pressable>
+          <Pressable
+            onPress={() => {
+              navigation.navigate("TaiKhoan");
+            }}
+          >
             <Image
               source={require("../assets/img/qr.png")}
               style={{

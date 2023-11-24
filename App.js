@@ -276,7 +276,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {/* <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Home" component={home} />
         <Stack.Screen name="infoAgri" component={infoAgri} />
         <Stack.Screen name="TrangTK" component={TrangTK} />
@@ -293,7 +293,7 @@ export default function App() {
         <Stack.Screen name="NapTien" component={NapTien} />
         <Stack.Screen name="ThanhToanHD" component={ThanhToanHD} />
         <Stack.Screen name="MaTheDATA" component={MaTheDATA} />
-        <Stack.Screen name="TienIch" component={TienIch} /> */}
+        <Stack.Screen name="TienIch" component={TienIch} />
         <Stack.Screen name="TaiKhoan" component={TaiKhoan} />
       </Stack.Navigator>
     </NavigationContainer>
