@@ -7,10 +7,23 @@ import {
   Image,
   TextInput,
 } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-const MaTheDATA = ({ navigation }) => {
+const MaTheDATA = ({ navigation, route }) => {
   const [selected, setSelected] = useState(1);
+  const [showPassword, setShowPassword] = useState(false);
 
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "VND", // You can change the currency code as needed
+    }).format(amount);
+  };
+  const { accounts } = route.params;
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -82,17 +95,33 @@ const MaTheDATA = ({ navigation }) => {
           />
           <Text style={styles.infoHeaderText}>Tài khoản nguồn</Text>
         </View>
-        <Text style={styles.infoText}>55555555555</Text>
+        <Text style={styles.infoText}>{accounts[0].SoTK}</Text>
         <View style={styles.infoDivider} />
         <View style={styles.infoRow}>
-          <Text style={styles.infoLabel}>Số dư</Text>
-          <View style={styles.infoBalanceContainer}>
-            <Text style={styles.infoBalance}>0 VND</Text>
-            <Image
-              style={styles.eyeIcon}
-              source={require("../assets/img/eye-crossed.png")}
+          <Text
+            style={{
+              fontWeight: 600,
+              fontSize: "16px",
+              marginLeft: 10,
+              color: "#91917e",
+            }}
+          >
+            Số dư
+          </Text>
+
+          <Text style={{ fontWeight: 600, fontSize: "16px", marginLeft: 100 }}>
+            {!showPassword
+              ? "*".repeat(String(accounts[0].SoDu).length) + " VND"
+              : formatCurrency(accounts[0].SoDu) + " VND"}
+          </Text>
+          <Pressable onPress={toggleShowPassword}>
+            <MaterialCommunityIcons
+              name={showPassword ? "eye-off" : "eye"}
+              size={24}
+              style={{ marginLeft: 10 }}
+              color="#ff6600"
             />
-          </View>
+          </Pressable>
         </View>
       </View>
 
@@ -138,7 +167,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#FF6600",
     flexDirection: "row",
     alignItems: "center",
-    marginLeft: 10,
   },
   backButton: {
     width: 40,
@@ -293,5 +321,3 @@ const styles = StyleSheet.create({
     fontSize: "18px",
   },
 });
-
-

@@ -95,7 +95,7 @@ const TienIch = ({ navigation, route }) => {
             marginLeft: 10,
           }}
         >
-          55555555555
+          {accounts[0].SoTK}
         </Text>
         <View
           style={{

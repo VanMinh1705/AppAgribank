@@ -518,13 +518,13 @@ const home = ({ navigation, route }) => {
               <Pressable
                 onPress={() => {
                   if (item.id === 1) {
-                    navigation.navigate("ChuyenKhoan");
+                    navigation.navigate("ChuyenKhoan", { accounts });
                   } else if (item.id === 2) {
-                    navigation.navigate("NapTien");
+                    navigation.navigate("NapTien", { accounts });
                   } else if (item.id === 3) {
                     navigation.navigate("ThanhToanHD");
                   } else if (item.id === 4) {
-                    navigation.navigate("MaTheDATA");
+                    navigation.navigate("MaTheDATA", { accounts });
                   } else if (item.id === 5) {
                     navigation.navigate("TienGuiTrucTuyen");
                   } else if (item.id === 6) {

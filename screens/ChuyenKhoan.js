@@ -8,7 +8,8 @@ import {
 } from "react-native";
 import React from "react";
 
-const ChuyenKhoan = ({ navigation }) => {
+const ChuyenKhoan = ({ navigation, route }) => {
+  const { accounts } = route.params;
   const chuyenkhoan = [
     {
       id: 1,
@@ -67,15 +68,15 @@ const ChuyenKhoan = ({ navigation }) => {
               <Pressable
                 onPress={() => {
                   if (item.id === 1) {
-                    navigation.navigate("CKNoiBoForm");
+                    navigation.navigate("CKNoiBoForm", { accounts });
                   } else if (item.id === 2) {
-                    navigation.navigate("CKLNHForm");
+                    navigation.navigate("CKLNHForm", { accounts });
                   } else if (item.id === 3) {
-                    navigation.navigate("CKLNHForm");
+                    navigation.navigate("CKLNHForm", { accounts });
                   } else if (item.id === 4) {
-                    navigation.navigate("QRScanner");
+                    navigation.navigate("QRScanner", { accounts });
                   } else if (item.id === 5) {
-                    navigation.navigate("CKLNHForm");
+                    navigation.navigate("CKLNHForm", { accounts });
                   }
                 }}
                 style={{

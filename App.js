@@ -18,7 +18,7 @@ import DatVeMayBay from "./screens/DatVeMayBay";
 import ChuyenKhoan from "./screens/ChuyenKhoan";
 import CKNoiBoForm from "./screens/CKNoiBoForm";
 import CKLNHForm from "./screens/CKLNHForm";
-import NapTien from "./screens/NapTien";
+import NapTien from "./screens/TaiChinh/NapTien";
 import ThanhToanHD from "./screens/ThanhToanHD";
 import MaTheDATA from "./screens/MaTheDATA";
 import TienIch from "./screens/TienIch";
