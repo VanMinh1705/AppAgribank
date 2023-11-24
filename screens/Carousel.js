@@ -10,7 +10,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 const Carousel = () => {
   const flatlistRef = useRef();
-  // Get Dimesnions
+  // Get Dimesnionssssssss
   const screenWidth = Dimensions.get("window").width;
   const [activeIndex, setActiveIndex] = useState(0);
 
